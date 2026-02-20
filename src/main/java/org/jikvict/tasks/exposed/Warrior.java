@@ -12,7 +12,7 @@ public class Warrior extends GameCharacter{
     }
     @Override
     public int calculateDamage(){
-        return (baseAttackPower + armorRating) / 2;
+        return baseAttackPower + armorRating / 2;
     }
     @Override
     public void takeDamage(int damage){
