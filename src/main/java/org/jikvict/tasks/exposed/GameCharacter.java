@@ -40,137 +40,6 @@ public abstract class GameCharacter {
      *
      */
 
-    public class Warrior extends GameCharacter{
-        private int armorRating;
-        public Warrior(String name, int health, int baseAttackPower, int armorRating){
-            super(name, health, baseAttackPower);
-            this.armorRating = armorRating;
-        }
-        @Override
-        public String getCharacterType(){
-            return "Warrior";
-        }
-        @Override
-        public int calculateDamage(){
-            return (baseAttackPower + armorRating) / 2;
-        }
-        @Override
-        public void takeDamage(int damage){
-            super.takeDamage(Math.max(0, damage - armorRating / 3));
-        }
-        @Override
-        public String getInfo(){
-            return super.getInfo() + "Armor: " + armorRating;
-        }
-
-        public int getArmorRating() {
-            return armorRating;
-        }
-        public void setArmorRating(int armorRating){
-            this.armorRating = armorRating;
-        }
-    }
-
-    public class Mage extends GameCharacter{
-        private int mana;
-        private int maxMana;
-        public Mage(String name, int health, int basePowerAttack, int mana){
-            super(name, health, basePowerAttack);
-            this.mana = mana;
-            this.maxMana = mana;
-
-        }
-        @Override
-        public String getCharacterType(){
-            return "Mage";
-        }
-        @Override
-        public int calculateDamage(){
-            return baseAttackPower * 2;
-        }
-        @Override
-        public String getInfo(){
-            return super.getInfo() + " | Mana: " + mana + "/" + maxMana;
-        }
-        public String castSpell(){
-            if(mana < 10){
-                return name + "does not have enough mana!";
-            }
-            else{
-                mana-=10;
-                return name + "casts a spell!";
-            }
-        }
-
-        public String castSpell(String spellName){
-            if(mana < 10){
-                return name + "does not have enough mana!";
-            }
-            else{
-                mana-=10;
-                return name + "casts" + spellName + "!";
-            }
-        }
-
-        public String castSpell(String spellName, GameCharacter target){
-            if(mana < 10){
-                return name + "does not have enough mana!";
-            }
-            else{
-                mana-=10;
-                int damage = calculateDamage();
-                target.takeDamage(damage);
-                return name + "casts" + spellName + "on" + target.getName() + "!";
-            }
-        }
-        public int getMana(){
-            return mana;
-        }
-        public int getMaxMana(){
-            return maxMana;
-        }
-        public void setMana(int mana){
-            this.mana = mana;
-        }
-
-    }
-
-    public class Archer extends GameCharacter{
-        private int arrowCount;
-        public Archer(String name, int health, int baseAttackPower, int arrowCount){
-            super(name, health, baseAttackPower);
-            this.arrowCount = arrowCount;
-        }
-        @Override
-        public String getCharacterType(){
-            return "Archer";
-        }
-        @Override
-        public int calculateDamage(){
-            return baseAttackPower * 5;
-        }
-        @Override
-        public String getInfo(){
-            return super.getInfo() + " | Arrows: " + arrowCount;
-        }
-        public boolean shootArrow(){
-            if(arrowCount > 0){
-                arrowCount--;
-                return true;
-            }
-            else{
-                return false;
-            }
-        }
-        public int getArrowCount(){
-            return arrowCount;
-        }
-        public void setArrowCount(int arrowCount){
-            this.arrowCount = arrowCount;
-        }
-    }
-
-
 
     private String name;
     private int health;
@@ -323,7 +192,7 @@ public abstract class GameCharacter {
     public int getHealth(){
         return health;
     }
-    public int maxHealth(){
+    public int getMaxHealth(){
         return maxHealth;
     }
     public int getBaseAttackPower(){
@@ -332,8 +201,14 @@ public abstract class GameCharacter {
     public void setName(String name){
         this.name = name;
     }
+    public Weapon getWeapon(){
+        return weapon;
+    }
     public void setWeapon(Weapon weapon){
         this.weapon = weapon;
+    }
+    public int getLevel(){
+        return level;
     }
 
     // ──────────────────────────── toString ────────────────────────────────────
@@ -343,10 +218,12 @@ public abstract class GameCharacter {
      */
     @Override
     public String toString() {
-        return getCharacterType() + name + "(Level " + level + ")";
+        return getCharacterType() + ": " + name + "(Level " + level + ")";
     }
 
     public boolean isAlive(){
-        return getHealth() > 0;
+        return alive;
     }
 }
+
+
