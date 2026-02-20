@@ -12,7 +12,7 @@ public class Archer extends GameCharacter{
     }
     @Override
     public int calculateDamage(){
-        return baseAttackPower * 5;
+        return baseAttackPower + 5;
     }
     @Override
     public String getInfo(){
