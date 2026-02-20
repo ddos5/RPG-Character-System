@@ -162,6 +162,12 @@ public abstract class GameCharacter {
                 return false;
             }
         }
+        public int getArrowCount(){
+            return arrowCount;
+        }
+        public void setArrowCount(int arrowCount){
+            this.arrowCount = arrowCount;
+        }
     }
 
 
