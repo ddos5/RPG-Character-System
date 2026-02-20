@@ -20,7 +20,7 @@ public class Warrior extends GameCharacter{
     }
     @Override
     public String getInfo(){
-        return super.getInfo() + "Armor: " + armorRating;
+        return super.getInfo() + " | Armor: " + armorRating;
     }
 
     public int getArmorRating() {
