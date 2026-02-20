@@ -65,7 +65,7 @@ public class Weapon {
      */
     public boolean use() {
         if (durability > 0) {
-            durablity -= 1;
+            durability -= 1;
             return true;
         }
         else{
