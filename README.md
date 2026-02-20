@@ -48,3 +48,23 @@ The project includes a comprehensive test suite (JUnit 5) to ensure all game log
 ./gradlew test
 ```
 *Test reports can be found at:* `build/reports/tests/test/index.html`
+### 4. Run the Demonstration
+To see the characters in action (via the `Main` class):
+```bash
+./gradlew run
+```
+### Code Example
+```bash
+// Create a Warrior and a Weapon
+Warrior arthur = new Warrior("Arthur", 100, 15, 20);
+Weapon excalibur = new Weapon("Excalibur", 25, 50);
+
+// Equip and Attack
+arthur.setWeapon(excalibur);
+System.out.println(arthur.getInfo()); 
+
+// Calculate total damage (Base + Bonus)
+int totalDamage = arthur.attack(); 
+System.out.println("Total Attack Power: " + totalDamage);
+```
+
