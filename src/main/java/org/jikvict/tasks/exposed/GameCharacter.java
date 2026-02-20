@@ -345,4 +345,8 @@ public abstract class GameCharacter {
     public String toString() {
         return getCharacterType() + name + "(Level " + level + ")";
     }
+
+    public boolean isAlive(){
+        return getHealth() > 0;
+    }
 }
