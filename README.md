@@ -43,3 +43,8 @@ To compile all classes and resolve dependencies:
 ./gradlew build
 ```
 ### 3. Run Unit Tests
+The project includes a comprehensive test suite (JUnit 5) to ensure all game logic is accurate:
+```bash
+./gradlew test
+```
+*Test reports can be found at:* `build/reports/tests/test/index.html`
