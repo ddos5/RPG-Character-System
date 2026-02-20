@@ -16,15 +16,13 @@ public abstract class GameCharacter {
         this.name = name;
         this.health = health;
         this.baseAttackPower = baseAttackPower;
-        maxHealth = health;
-        level = 1;
-        alive = true;
-        weapon = null;
+        this.maxHealth = health;
+        this.level = 1;
+        this.alive = true;
+        this.weapon = null;
     }
 
-
     public abstract String getCharacterType();
-
     public abstract int calculateDamage();
 
 
@@ -44,13 +42,10 @@ public abstract class GameCharacter {
 
 
     public int attack() {
-        // TODO: Implement (calculateDamage + weapon damage if weapon is equipped and not broken)
         int totalDamage = calculateDamage();
-
         if(weapon != null && !weapon.isBroken()) {
             totalDamage += weapon.getDamage();
         }
-
         return totalDamage;
     }
 
@@ -58,20 +53,15 @@ public abstract class GameCharacter {
         this.health -= damage;
         if(this.health <= 0){
             this.health = 0;
-            alive = false;
+            this.alive = false;
         }
     }
 
     public void heal(int amount) {
-        if(!alive)
-            return;
-        this.health += amount;
-        if(this.health > maxHealth){
-            this.health = maxHealth;
+        if(alive){
+            this.health = Math.min(maxHealth, this.health + amount);
         }
-
     }
-
 
     public void levelUp() {
         this.level += 1;
@@ -95,7 +85,7 @@ public abstract class GameCharacter {
         this.name = name;
     }
     public Weapon getWeapon(){
-        return this.weapon;
+        return weapon;
     }
     public void setWeapon(Weapon weapon){
         this.weapon = weapon;
