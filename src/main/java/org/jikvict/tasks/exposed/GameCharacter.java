@@ -153,8 +153,14 @@ public abstract class GameCharacter {
         public String getInfo(){
             return super.getInfo() + " | Arrows: " + arrowCount;
         }
-        public void shootArrow(){
-            if(arrowCount > 0)
+        public boolean shootArrow(){
+            if(arrowCount > 0){
+                arrowCount--;
+                return true;
+            }
+            else{
+                return false;
+            }
         }
     }
 
