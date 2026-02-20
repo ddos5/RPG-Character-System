@@ -2,7 +2,7 @@ package org.jikvict.tasks.exposed;
 
 public class Mage extends GameCharacter{
     private int mana;
-    private final int maxMana;
+    private int maxMana;
     public Mage(String name, int health, int basePowerAttack, int mana){
         super(name, health, basePowerAttack);
         this.mana = mana;
@@ -25,32 +25,25 @@ public class Mage extends GameCharacter{
         if(mana < 10){
             return getName() + "does not have enough mana!";
         }
-        else{
-            mana-=10;
-            return getName() + "casts a spell!";
-        }
+        mana-=10;
+        return getName() + "casts a spell!";
     }
 
     public String castSpell(String spellName){
         if(mana < 10){
             return getName() + "does not have enough mana!";
         }
-        else{
             mana-=10;
             return getName() + "casts" + spellName + "!";
-        }
     }
 
     public String castSpell(String spellName, GameCharacter target){
         if(mana < 10){
             return getName() + "does not have enough mana!";
         }
-        else{
             mana-=10;
-            int damage = calculateDamage();
-            target.takeDamage(damage);
+            target.takeDamage(calculateDamage());
             return getName() + "casts" + spellName + "on" + target.getName() + "!";
-        }
     }
     public int getMana(){
         return mana;
