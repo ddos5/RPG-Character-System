@@ -34,7 +34,7 @@ This project uses the **Gradle** build tool.
 
 ### 1. Clone the Repository
 ```bash
-git clone https://github.com/your-username/RPG-Character-System.git
+git clone https://github.com/ddos5/RPG-Character-System.git
 cd RPG-Character-System
 ```
 ### 2. Build the Project
