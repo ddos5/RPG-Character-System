@@ -96,7 +96,7 @@ public abstract class GameCharacter {
 
     @Override
     public String toString() {
-        return getCharacterType() + ": " + name + "(Level " + level + ")";
+        return getCharacterType() + ": " + name + " (Level " + level + ")";
     }
 
     public boolean isAlive(){
