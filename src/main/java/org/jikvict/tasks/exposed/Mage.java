@@ -23,27 +23,27 @@ public class Mage extends GameCharacter{
     }
     public String castSpell(){
         if(mana < 10){
-            return getName() + "does not have enough mana!";
+            return getName() + " does not have enough mana!";
         }
         mana-=10;
-        return getName() + "casts a spell!";
+        return getName() + " casts a spell!";
     }
 
     public String castSpell(String spellName){
         if(mana < 10){
-            return getName() + "does not have enough mana!";
+            return getName() + " does not have enough mana!";
         }
             mana-=10;
-            return getName() + "casts" + spellName + "!";
+            return getName() + " casts " + spellName + "!";
     }
 
     public String castSpell(String spellName, GameCharacter target){
         if(mana < 10){
-            return getName() + "does not have enough mana!";
+            return getName() + " does not have enough mana!";
         }
             mana-=10;
             target.takeDamage(calculateDamage());
-            return getName() + "casts" + spellName + "on" + target.getName() + "!";
+            return getName() + " casts " + spellName + " on " + target.getName() + "!";
     }
     public int getMana(){
         return mana;
