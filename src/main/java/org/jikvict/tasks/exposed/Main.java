@@ -12,7 +12,7 @@ public class Main {
         // TODO: After you implement Warrior, Mage and Archer, uncomment the code below.
 
 
-        GameCharacter warrior = new Warrior("Arthur", 100, 10, 6);
+        GameCharacter warrior = new Warrior("Arthur", 100, 10, 5);
         GameCharacter mage    = new Mage("Gandalf", 80, 15, 50);
         GameCharacter archer  = new Archer("Legolas", 90, 12, 20);
 
